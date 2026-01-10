@@ -135,3 +135,27 @@ python -m venv .venv
 pip install -r requirements.txt
 streamlit run app.py
 ```
+
+
+## Erweiterung: Binäre Klassifikation (App 2)
+
+Zusätzlich zur Multiclass-Variante gibt es eine **binäre Klassifikation**:
+
+- **0 = kein Diabetes**
+- **1 = Diabetes-Risiko** (Prädiabetes **oder** Diabetes)
+
+**Warum?**  
+Die ursprüngliche Klasse „Prädiabetes“ ist im Datensatz sehr selten und schwer abzugrenzen. Durch das Zusammenfassen zu „Risiko“ wird das Lernproblem stabiler und die Metriken (z. B. F1/ROC-AUC) werden robuster.
+
+### Dateien
+- `data/processed/diabetes_fe_binary.csv` – Feature-engineerte Daten + Target `Diabetes_binary`
+- `notebooks/02_train_binary_model.ipynb` – Training/Evaluation der binären Variante
+- `models/diabetes_binary_model.joblib` – gespeichertes Binary-Modell
+- `apps/app_binary.py` – Streamlit-App für die binäre Vorhersage
+
+### App starten (Binary)
+Im Projekt-Root (venv aktiv):
+
+```bash
+streamlit run apps/app_binary.py
+```
